@@ -52,22 +52,22 @@ python manage.py runserver
 
 ## Примеры запросов
 ### 1. Получение токена:
-       * Путь:
-       ```
-       api/v1/jwt/create/
-       ```
-       * Метод POST
-       * Payload:
-       ```
-       Content type: application/json
-       {
-        "username": "string",
-        "password": "string"
-       }
-       ```
+ * Путь:
+  ```
+  api/v1/jwt/create/
+  ```
+  * Метод POST
+  * Payload:
+  ```
+  Content type: application/json
+  {
+    "username": "string",
+    "password": "string"
+  }
+  ```
 ### 2. Получение пяти постов после первого:
-       * Путь:
-       ```
-       api/v1/posts/?limit=5&offset=1
-       ```
-       * Метод GET
+ * Путь:
+ ```
+ api/v1/posts/?limit=5&offset=1
+ ```
+ * Метод GET
