@@ -1,7 +1,7 @@
 # api_final
 
 ## Описание
-### :fire::fire:fire:API для социальной сети Yatube.:fire::fire:fire:
+### :fire::fire::fire:API для социальной сети Yatube.:fire::fire::fire:
 
 API создан с использованием Django REST Framework.
 Данный API имеет следующие возможности:
