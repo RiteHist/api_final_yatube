@@ -1,7 +1,7 @@
 # api_final
 
 ## Описание
-### :fire::fire:fire:API для социальной сети Yatube.:fire::fire:fire:
+### :fire::fire::fire:API для социальной сети Yatube.:fire::fire::fire:
 
 API создан с использованием Django REST Framework.
 Данный API имеет следующие возможности:
@@ -52,22 +52,79 @@ python manage.py runserver
 
 ## Примеры запросов
 ### 1. Получение токена:
-       * Путь:
-       ```
-       api/v1/jwt/create/
-       ```
-       * Метод POST
-       * Payload:
-       ```
-       Content type: application/json
-       {
-        "username": "string",
-        "password": "string"
-       }
-       ```
+ * Путь:
+  ```
+  api/v1/jwt/create/
+  ```
+  * Метод POST
+  * Payload:
+  ```
+  Content type: application/json
+  {
+    "username": "string",
+    "password": "string"
+  }
+  ```
+  * Возвращаемое значение:
+  ```
+  {
+   "refresh": "string",
+   "access": "string"
+  }
+  ```
 ### 2. Получение пяти постов после первого:
-       * Путь:
-       ```
-       api/v1/posts/?limit=5&offset=1
-       ```
-       * Метод GET
+ * Путь:
+ ```
+ api/v1/posts/?limit=5&offset=1
+ ```
+ * Метод GET
+ * Возвращаемое значение:
+ ```
+ {
+    "count": 7,
+    "next": "http://localhost:8000/api/v1/posts/?limit=5&offset=6",
+    "previous": "http://localhost:8000/api/v1/posts/?limit=5",
+    "results": [
+        {
+            "id": 2,
+            "author": "me",
+            "text": "test2",
+            "pub_date": "2022-05-18T01:22:57.343014Z",
+            "image": null,
+            "group": null
+        },
+        {
+            "id": 3,
+            "author": "me",
+            "text": "test3",
+            "pub_date": "2022-05-18T01:23:00.448773Z",
+            "image": null,
+            "group": null
+        },
+        {
+            "id": 4,
+            "author": "me",
+            "text": "test4",
+            "pub_date": "2022-05-18T01:23:02.640036Z",
+            "image": null,
+            "group": null
+        },
+        {
+            "id": 5,
+            "author": "me",
+            "text": "test5",
+            "pub_date": "2022-05-18T01:23:04.676365Z",
+            "image": null,
+            "group": null
+        },
+        {
+            "id": 6,
+            "author": "me",
+            "text": "test6",
+            "pub_date": "2022-05-18T01:23:07.004191Z",
+            "image": null,
+            "group": null
+        }
+    ]
+}
+```
