@@ -6,7 +6,7 @@ from rest_framework.pagination import LimitOffsetPagination
 from posts.models import Post, Group
 from .serializers import PostSerializer, GroupSerializer
 from .serializers import CommentSerializer, FollowSerializer
-from .permissions import AnonReadOnlyOrOwner
+from .permissions import AnonReadOnlyOrOwner, IsOwnerOrReadOnly
 from .custom_viewsets import CreateListViewSet
 
 
@@ -27,7 +27,7 @@ class GroupViewSet(viewsets.ReadOnlyModelViewSet):
 
 class CommentViewSet(viewsets.ModelViewSet):
     serializer_class = CommentSerializer
-    permission_classes = (IsAuthenticated,)
+    permission_classes = (IsOwnerOrReadOnly,)
 
     def get_queryset(self):
         post_id = self.kwargs.get('post_id')
