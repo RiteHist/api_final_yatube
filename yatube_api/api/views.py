@@ -6,7 +6,7 @@ from rest_framework.pagination import LimitOffsetPagination
 from posts.models import Post, Group
 from .serializers import PostSerializer, GroupSerializer
 from .serializers import CommentSerializer, FollowSerializer
-from .permissions import AnonReadOnlyOrOwner, IsOwnerOrReadOnly
+from .permissions import IsOwnerOrReadOnly
 from .custom_viewsets import CreateListViewSet
 
 
@@ -14,7 +14,7 @@ class PostViewSet(viewsets.ModelViewSet):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
     pagination_class = LimitOffsetPagination
-    permission_classes = (AnonReadOnlyOrOwner,)
+    permission_classes = (IsOwnerOrReadOnly,)
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
